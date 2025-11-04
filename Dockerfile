@@ -20,7 +20,7 @@ RUN git clone https://github.com/pgpartman/pg_partman.git /tmp/pg_partman && \
 RUN apk del .build-deps && \
     rm -rf /tmp/pg_partman
 
-RUN echo "shared_preload_libraries = 'pg_stat_statements,pg_partman_bgw''" >> /usr/local/share/postgresql/postgresql.conf.sample
+RUN echo "shared_preload_libraries = 'pg_partman_bgw'" >> /usr/local/share/postgresql/postgresql.conf.sample
 
 RUN echo "pg_partman_bgw.interval = 3600" >> /usr/local/share/postgresql/postgresql.conf.sample && \
     echo "pg_partman_bgw.role = 'postgres'" >> /usr/local/share/postgresql/postgresql.conf.sample && \
